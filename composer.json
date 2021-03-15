@@ -14,5 +14,8 @@
     "require": {
         "composer/installers": "~1.0",
         "sentry/sentry-laravel": "~1.5"
+    },
+    "extra": {
+        "installer-name": "sentry"
     }
 }
