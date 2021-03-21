@@ -9,9 +9,20 @@
         {
             "name": "Luke Towers",
             "email": "wintercms@luketowers.ca"
+        },
+        {
+            "name": "Winter CMS Maintainers",
+            "homepage": "https://wintercms.com",
+            "role": "Maintainer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/wintercms/wn-sentry-plugin/issues",
+        "discord": "https://discord.gg/D5MFSPH6Ux",
+        "source": "https://github.com/wintercms/wn-sentry-plugin"
+    },
     "require": {
+        "php": ">=7.2",
         "composer/installers": "~1.0",
         "sentry/sentry-laravel": "~1.5"
     },
