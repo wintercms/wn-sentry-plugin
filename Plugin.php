@@ -29,6 +29,7 @@ class Plugin extends PluginBase
             'author'      => 'Winter CMS',
             'icon'        => 'icon-bug',
             'homepage'    => 'https://github.com/wintercms/wn-sentry-plugin',
+            'replaces'    => ['LukeTowers.Sentry' => '<=1.0.2'],
         ];
     }
 
