@@ -10,7 +10,7 @@ After you have provided the DSN, you can go to `example.com/debug-sentry` to tes
 
 # Installation
 
-To install from the [Marketplace](https://wintercms.com/plugin/winter-sentry), click on the "Add to Project" button and then select the project you wish to add it to and pay for the plugin. Once the plugin has been added to the project, go to the backend and check for updates to pull in the plugin.
+To install from the [Marketplace](https://wintercms.com/plugin/winter-sentry), click on the "Add to Project" button and then select the project you wish to add it to. Once the plugin has been added to the project, go to the backend and check for updates to pull in the plugin.
 
 To install from the backend, go to **Settings -> Updates & Plugins -> Install Plugins** and then search for `Winter.Sentry`.
 
