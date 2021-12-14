@@ -22,9 +22,9 @@
         "source": "https://github.com/wintercms/wn-sentry-plugin"
     },
     "require": {
-        "php": ">=7.2",
+        "php": "^7.2|^8.0",
         "composer/installers": "~1.0",
-        "sentry/sentry-laravel": "~1.5"
+        "sentry/sentry-laravel": "~2.0"
     },
     "extra": {
         "installer-name": "sentry"
