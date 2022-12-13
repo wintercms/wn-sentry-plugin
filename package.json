@@ -1,0 +1,30 @@
+{
+    "name": "@wintercms/wn-sentry-plugin",
+    "version": "1.0.0",
+    "description": "Sentry.io integration for Winter CMS",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wintercms/wn-sentry-plugin.git"
+    },
+    "author": {
+        "name": "Jack Wilkinson",
+        "email": "me@jackwilky.com",
+        "url": "https://wintercms.com"
+    },
+    "contributors": [
+        {
+            "name": "Winter CMS Maintainers",
+            "url": "https://wintercms.com"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wintercms/wn-sentry-plugin/issues"
+    },
+    "homepage": "https://wintercms.com/",
+    "dependencies": {
+        "@sentry/browser": "^7.24.2",
+        "@sentry/tracing": "^7.24.2"
+    }
+}
