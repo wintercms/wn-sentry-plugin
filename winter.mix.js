@@ -6,5 +6,3 @@ mix.js(
     './assets/js/src/sentry.js',
     './assets/js/dist/sentry.js'
 );
-
-
