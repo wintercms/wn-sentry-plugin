@@ -3,6 +3,7 @@
 use App;
 use Event;
 use Config;
+use Url;
 use System\Classes\PluginBase;
 use Illuminate\Foundation\AliasLoader;
 
@@ -46,6 +47,10 @@ class Plugin extends PluginBase
                 app('sentry')->captureException($exception);
             }
         });
+
+        if ($jsDsn = env('SENTRY_JAVASCRIPT_DSN')) {
+            $this->enableJavascriptSentry($jsDsn);
+        }
     }
 
     /**
@@ -86,5 +91,30 @@ class Plugin extends PluginBase
                 }
             }
         }
+    }
+
+    public function enableJavascriptSentry(?string $javascriptDsn)
+    {
+        $script = Url::asset('/plugins/winter/sentry/assets/js/dist/sentry.js');
+        $env = Config::get('app.env');
+        $sampleRate = Config::get('sentry.traces_sample_rate');
+
+        $html = <<<HTML
+            <script>
+                window.sentryEnv = window.sentryEnv || {};
+                window.sentryEnv.SENTRY_JAVASCRIPT_DSN = "{$javascriptDsn}";
+                window.sentryEnv.APP_ENV = "{$env}";
+                window.sentryEnv.SENTRY_TRACES_SAMPLE_RATE = {$sampleRate};
+            </script>
+            <script src="{$script}"></script>
+        HTML;
+
+        Event::listen('backend.layout.extendHead', function () use ($html) {
+            return $html;
+        });
+
+        Event::listen('cms.page.render', function ($controller, string $pageContents) use ($html) {
+            return $pageContents . $html;
+        });
     }
 }
