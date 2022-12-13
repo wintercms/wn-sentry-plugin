@@ -20,6 +20,3 @@ window.sentryEnv = window.sentryEnv || {};
         tracesSampleRate: tracesSampleRate || 1.0,
     });
 })(window.sentryEnv.SENTRY_JAVASCRIPT_DSN, window.sentryEnv.APP_ENV, window.sentryEnv.SENTRY_TRACES_SAMPLE_RATE);
-
-
-
