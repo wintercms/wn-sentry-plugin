@@ -1,6 +1,7 @@
 <?php namespace Winter\Sentry;
 
 use App;
+use Block;
 use Event;
 use Config;
 use Url;
@@ -109,12 +110,12 @@ class Plugin extends PluginBase
             <script src="{$script}"></script>
         HTML;
 
-        Event::listen('backend.layout.extendHead', function () use ($html) {
-            return $html;
-        });
-
-        Event::listen('cms.page.render', function ($controller, string $pageContents) use ($html) {
-            return $pageContents . $html;
-        });
+        if ($this->app->runningInBackend()) {
+            // Inject into the Block placeholder `head` in the backend
+            Block::append('head', $html);
+        } elseif (!$this->app->runningInConsole()) {
+            // Inject into the {% scripts %} tag in the frontend
+            Block::append('scripts', $html);
+        }
     }
 }
