@@ -50,7 +50,7 @@ class Plugin extends PluginBase
         });
 
         if ($jsDsn = env('SENTRY_JAVASCRIPT_DSN')) {
-            $this->enableJavascriptSentry($jsDsn);
+            $this->injectSentryJs($jsDsn);
         }
     }
 
@@ -94,7 +94,10 @@ class Plugin extends PluginBase
         }
     }
 
-    public function enableJavascriptSentry(?string $javascriptDsn)
+    /**
+     * Inject sentry.js into the backend and frontend
+     */
+    protected function injectSentryJs(string $javascriptDsn)
     {
         $script = Url::asset('/plugins/winter/sentry/assets/js/dist/sentry.js');
         $env = Config::get('app.env');
