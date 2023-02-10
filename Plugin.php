@@ -99,7 +99,7 @@ class Plugin extends PluginBase
      */
     protected function injectSentryJs(string $javascriptDsn)
     {
-        $script = Url::asset('/plugins/winter/sentry/assets/js/dist/sentry.js');
+        $script = Url::asset('/plugins/winter/sentry/assets/dist/js/sentry.js');
         $env = Config::get('app.env');
         $sampleRate = Config::get('sentry.traces_sample_rate');
 
