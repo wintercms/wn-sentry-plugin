@@ -3,3 +3,4 @@
 "2.0.1": "Rebrand to Winter.Sentry"
 "2.1.0": "Upgrade Sentry client to v2 and PHP8 support"
 "2.1.1": "Add sentry release ENV support"
+"2.2.0": "Updated sentry to v3.x"
