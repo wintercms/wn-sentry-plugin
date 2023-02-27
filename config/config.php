@@ -4,7 +4,7 @@
 
     /*
     |--------------------------------------------------------------------------
-    | Enabled Javascript Sentry Reporting
+    | Sentry Javascript DSN
     |--------------------------------------------------------------------------
     |
     | Define a Sentry DSN to send Javascript exceptions to
