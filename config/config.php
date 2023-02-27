@@ -2,6 +2,15 @@
     // If null, value will be pulled from app.debug
     'enableTestRoute' => null,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Enabled Javascript Sentry Reporting
+    |--------------------------------------------------------------------------
+    |
+    | Define a Sentry DSN to send Javascript exceptions to
+    |
+    */
+
     'sentry_js_dsn' => env('SENTRY_JAVASCRIPT_DSN', null),
 
     'packages' => [
