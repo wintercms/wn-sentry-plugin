@@ -8,6 +8,7 @@
     |--------------------------------------------------------------------------
     |
     | Define a Sentry DSN to send Javascript exceptions to
+    | See https://docs.sentry.io/platforms/javascript/#configure
     |
     */
 
