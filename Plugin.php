@@ -2,11 +2,11 @@
 
 use App;
 use Block;
-use Event;
 use Config;
-use Url;
-use System\Classes\PluginBase;
+use Event;
 use Illuminate\Foundation\AliasLoader;
+use System\Classes\PluginBase;
+use Url;
 
 /**
  * Winter.Sentry Plugin Information File
