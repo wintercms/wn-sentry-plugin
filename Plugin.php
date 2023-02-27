@@ -1,10 +1,12 @@
 <?php namespace Winter\Sentry;
 
 use App;
-use Event;
+use Block;
 use Config;
-use System\Classes\PluginBase;
+use Event;
 use Illuminate\Foundation\AliasLoader;
+use System\Classes\PluginBase;
+use Url;
 
 /**
  * Winter.Sentry Plugin Information File
@@ -46,6 +48,10 @@ class Plugin extends PluginBase
                 app('sentry')->captureException($exception);
             }
         });
+
+        if ($jsDsn = Config::get('winter.sentry::sentry_js_dsn')) {
+            $this->injectSentryJs($jsDsn);
+        }
     }
 
     /**
@@ -85,6 +91,34 @@ class Plugin extends PluginBase
                     $aliasLoader->alias($alias, $path);
                 }
             }
+        }
+    }
+
+    /**
+     * Inject sentry.js into the backend and frontend
+     */
+    protected function injectSentryJs(string $javascriptDsn)
+    {
+        $script = Url::asset('/plugins/winter/sentry/assets/dist/js/sentry.js');
+        $env = Config::get('app.env');
+        $sampleRate = Config::get('sentry.traces_sample_rate');
+
+        $html = <<<HTML
+            <script>
+                window.sentryEnv = window.sentryEnv || {};
+                window.sentryEnv.SENTRY_JAVASCRIPT_DSN = "{$javascriptDsn}";
+                window.sentryEnv.APP_ENV = "{$env}";
+                window.sentryEnv.SENTRY_TRACES_SAMPLE_RATE = {$sampleRate};
+            </script>
+            <script src="{$script}"></script>
+        HTML;
+
+        if ($this->app->runningInBackend()) {
+            // Inject into the Block placeholder `head` in the backend
+            Block::append('head', $html);
+        } elseif (!$this->app->runningInConsole()) {
+            // Inject into the {% scripts %} tag in the frontend
+            Block::append('scripts', $html);
         }
     }
 }

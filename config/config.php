@@ -2,6 +2,18 @@
     // If null, value will be pulled from app.debug
     'enableTestRoute' => null,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Sentry Javascript DSN
+    |--------------------------------------------------------------------------
+    |
+    | Define a Sentry DSN to send Javascript exceptions to
+    | See https://docs.sentry.io/platforms/javascript/#configure
+    |
+    */
+
+    'sentry_js_dsn' => env('SENTRY_JAVASCRIPT_DSN', null),
+
     'packages' => [
         'sentry/sentry-laravel' => [
             'providers' => [
