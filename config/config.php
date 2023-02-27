@@ -2,6 +2,8 @@
     // If null, value will be pulled from app.debug
     'enableTestRoute' => null,
 
+    'sentry_js_dsn' => env('SENTRY_JAVASCRIPT_DSN', null),
+
     'packages' => [
         'sentry/sentry-laravel' => [
             'providers' => [

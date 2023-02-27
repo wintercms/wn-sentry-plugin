@@ -49,7 +49,7 @@ class Plugin extends PluginBase
             }
         });
 
-        if ($jsDsn = env('SENTRY_JAVASCRIPT_DSN')) {
+        if ($jsDsn = Config::get('winter.sentry::sentry_js_dsn')) {
             $this->injectSentryJs($jsDsn);
         }
     }
