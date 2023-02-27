@@ -24,7 +24,8 @@
     },
     "homepage": "https://wintercms.com/",
     "dependencies": {
-        "@sentry/browser": "^7.24.2",
-        "@sentry/tracing": "^7.24.2"
+        "@sentry/browser": "^7.39.0",
+        "@sentry/tracing": "^7.39.0",
+        "@wintercms/wn-sentry-plugin": "file:"
     }
 }
