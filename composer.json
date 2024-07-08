@@ -23,6 +23,6 @@
     },
     "require": {
         "php": "^7.2|^8.0",
-        "sentry/sentry-laravel": "~3.7"
+        "sentry/sentry-laravel": "~3.7|~4.6"
     }
 }
