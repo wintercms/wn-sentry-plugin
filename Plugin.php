@@ -101,7 +101,7 @@ class Plugin extends PluginBase
     {
         $script = Url::asset('/plugins/winter/sentry/assets/dist/js/sentry.js');
         $env = Config::get('app.env');
-        $sampleRate = Config::get('sentry.traces_sample_rate');
+        $sampleRate = Config::get('sentry.traces_sample_rate', 0);
 
         $html = <<<HTML
             <script>
