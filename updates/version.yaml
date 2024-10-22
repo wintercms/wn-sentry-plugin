@@ -6,3 +6,4 @@
 "2.2.0": "Updated sentry to v3.x"
 "2.2.1": "Added support for Sentry JS"
 "2.2.2": "Added support for Laravel 11"
+"2.2.3": "Added default traces sample rate"
